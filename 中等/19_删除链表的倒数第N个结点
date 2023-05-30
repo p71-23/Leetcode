@@ -1,0 +1,28 @@
+#删除链表的倒数第 n 个结点，并且返回链表的头结点。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
+    struct ListNode *head1=malloc(sizeof(struct ListNode));
+    head1->next=head;
+    struct ListNode *head2=head1;
+    int length=0;
+    while(head2->next!=NULL)
+    {
+        length++;
+        head2=head2->next;
+    }
+    head2=head1;
+    for(int i=0;i<length-n;i++)
+    {
+        head2=head2->next;
+    }
+    head2->next=head2->next->next;
+    struct ListNode *newHead=head1->next;
+    return newHead;
+}
+#两次遍历，第一次遍历先确定结点位置第二次再删除结点。
