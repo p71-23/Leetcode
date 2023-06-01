@@ -1,0 +1,26 @@
+#给你单链表的头节点 head ，请你反转链表，并返回反转后的链表
+1.迭代
+struct ListNode* reverseList(struct ListNode* head){
+   if(head==NULL||head->next==NULL)
+        return head;
+    struct ListNode *front=head;
+    struct ListNode *behind=NULL;
+    while(front!=NULL)
+    {
+        struct ListNode *nextNode=front->next;
+        front->next=behind;
+        behind=front;
+        front=nextNode;
+    }
+    return behind;
+}
+
+2.递归，返回原反转后的链表
+struct ListNode* reverseList(struct ListNode* head){
+   if(head==NULL||head->next==NULL)
+        return head;
+    struct ListNode* reversedList = reverseList(head->next);
+    head->next->next=head;
+    head->next=NULL;
+    return reversedList;
+}
