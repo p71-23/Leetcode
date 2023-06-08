@@ -5,4 +5,4 @@ Leetcode practice
 
 每周三道简单or一道简单一道中等。
 
-设置分支为weekn-20xx/xx形式，完成任务后每周合并保存分支
+设置分支为weekx-20xx/xx形式，完成任务后每周合并保存分支
