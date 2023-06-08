@@ -7,7 +7,7 @@ struct ListNode* reverseList(struct ListNode* head){
     struct ListNode *behind=NULL;
     while(front!=NULL)
     {
-        struct ListNode *nextNode=front->next;
+        struct ListNode *nextNode=front->next;//指针从前向后移动，需要额外添加一个结点用来记录下一个反转的结点。
         front->next=behind;
         behind=front;
         front=nextNode;
@@ -24,3 +24,9 @@ struct ListNode* reverseList(struct ListNode* head){
     head->next=NULL;
     return reversedList;
 }
+//相当于每次添加一个结点进入之前已反转好的链表。
+eg.(*)->(***)改为(*)<-(***)
+此时head指向的是(*)
+head->next->next也就是(***)->next=head(*)指针指回
+(null)<-(*)<-(***)
+即head->next=null
