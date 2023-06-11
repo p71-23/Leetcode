@@ -1,0 +1,29 @@
+#给定一个含有 n 个正整数的数组和一个正整数 target。找出该数组中满足其和 ≥ target 的长度最小的连续子数组，并返回其长度。如果不存在符合条件的子数组，返回 0 。
+#传统方法时间复杂度为o(n²)太高
+int minSubArrayLen(int target, int* nums, int numsSize){
+    if(numsSize==0)
+        return 0;
+    long long sum=0;
+    int front=0;
+    int end=0;
+    int flag=numsSize+2;
+    while(end<numsSize)
+    {
+        sum+=nums[end];
+        if(sum>=target)
+        {
+            if(end-front+1<flag)
+                flag=end-front+1;
+            sum-=nums[front];
+            sum-=nums[end];#采用滑动数组的方法，时间复杂度降为o(n)
+            front+=1;#一旦sum>=target就可以从下一个起点开始计算，因为本起点已经达到了长度最小的情况。
+        }
+        else
+        {
+            end+=1;#当sum<target时，起点front不动，终点end继续往后走
+        }
+    }
+    return flag==numsSize+2?0:flag;
+}
+#但这种方法存在一定的局限，因为本题是正整数数组，总和sum一定是递增的，所以可以采用滑动数组的方法，
+如果数组中存在负数，sum>=target时不能直接让front+1，因为后面有负数可能存在以此为起点的长度更小的情况。

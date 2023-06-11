@@ -1,0 +1,20 @@
+#查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 ""
+char * longestCommonPrefix(char ** strs, int strsSize){
+    if(strsSize==0)
+        return "";
+    int i=1,j=0;
+    char *prefix=strs[0];//主要是这里对最长前缀的指针设置
+    while(i<strsSize)
+    {
+        j=0;
+        while(prefix[j]!='\0'&&strs[i][j]!='\0'&&prefix[j]==strs[i][j])
+        {
+            j++;
+        }
+        prefix[j]='\0';//以及每次比较完后自动截断后面不相同的部分
+        i++;
+        if(prefix[0]=='\0')
+            return "";
+    }
+    return prefix;
+}
