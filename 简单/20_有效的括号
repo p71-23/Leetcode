@@ -1,0 +1,33 @@
+#给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+bool isValid(char * s){
+    struct ListNode{
+        char val;
+        struct ListNode*front;
+        struct ListNode*next;
+    };//创建双向链表
+    struct ListNode *top=NULL;
+    int len=strlen(s);
+    for(int i=0;i<len;i++)
+    {
+        if(top!=NULL&&((top->val=='{'&&s[i]=='}')||(top->val=='('&&s[i]==')')||(top->val=='['&&s[i]==']')))
+        {
+            top=top->front;//如果括号配对成功则出栈，top指针指向前一个元素
+        }
+        else
+        {
+            struct ListNode*newNode=(struct ListNode*)malloc(sizeof(struct ListNode));
+            newNode->val=s[i];
+            newNode->front=top;
+            newNode->next=NULL;
+            if(top!=NULL)
+            {
+                top->next=newNode;
+            }
+            top=newNode;//如果不一样则将新结点入栈，并与前面的结点相连，将top指针指向本结点
+        }
+    }
+    if(top!=NULL)
+        return false;//最后判断链表是否为空从而判断是否配对成功
+    else
+        return true;
+}
