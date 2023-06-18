@@ -1,0 +1,23 @@
+#给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
+int lengthOfLongestSubstring(char * s){
+    int str[500]={0};
+    int sum=0;
+    int num=0;
+    int len=strlen(s);
+    for(int i=0;i<len;i++)
+    {
+        int j=i;
+        num=0;
+        while(str[s[j]]==0&&j<len)
+        {
+            str[s[j]]=1;//ascii码一共有127个，如果该字符出现过，则将str数组该位值设置为1
+            j++;
+            num++;
+        }//内循环用来标记每次查找的子串的最长无重复个数
+        for(int k=0;k<500;k++)
+            str[k]=0;//重新置0，用于下一次检测
+        if(num>sum)
+            sum=num;
+    }
+    return sum;
+}

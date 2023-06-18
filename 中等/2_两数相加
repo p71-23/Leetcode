@@ -1,0 +1,29 @@
+#给你两个非空的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+请你将两个数相加，并以相同形式返回一个表示和的链表。
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
+    struct ListNode l4;
+    struct ListNode *l3=&l4;//l4记录链表位置用于最终返回结果
+    int carry=0;//进位
+    while(l1!=NULL||l2!=NULL)
+    {
+        int val1=(l1!=NULL)?l1->val:0;
+        int val2=(l2!=NULL)?l2->val:0;//链表结束相加时则将该值赋为0
+        int sum=val1+val2+carry;
+        carry=sum/10;
+        l3->next=(struct ListNode*)malloc(sizeof(struct ListNode));
+        l3->next->val=sum%10;
+        l3->next->next=NULL;
+        l3=l3->next;//创建新节点保存到l3链表上
+        if(l1!=NULL)
+            l1=l1->next;
+        if(l2!=NULL)
+            l2=l2->next;
+    }
+    if(carry>0)
+    {
+        l3->next=(struct ListNode*)malloc(sizeof(struct ListNode));
+        l3->next->val=carry;
+        l3->next->next=NULL;//最后要加一个检验，如果最后一位有进位则要增加一位。
+    }
+    return l4.next;
+}
