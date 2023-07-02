@@ -1,7 +1,9 @@
 # Leetcode practice
 
-分为简单、中等、困难三类，题目序号与leetcode一一对应。
+  This repository is created to store the problems solved on LeetCode, along with their solutions and reflections. 
+  
+  The problems are categorized into three levels: Easy, Medium, and Hard, and each problem is mapped to its corresponding LeetCode problem number.
 
-每周三道简单or一道简单一道中等。
+  The goal is to solve either three Easy problems or one Easy problem and one Medium problem every week. 
 
-具体使用说明可查看[usage instruction](https://github.com/p71-23/Leetcode/blob/usage-instruction/usage%20instruction.md)
+  Feel free to explore the repository for detailed [usage instruction](https://github.com/p71-23/Leetcode/blob/usage-instruction/usage%20instruction.md).

@@ -1,0 +1,53 @@
+#给你一个链表数组，每个链表都已经按升序排列。
+请你将所有链表合并到一个升序链表中，返回合并后的链表。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* mergeKLists(struct ListNode** lists, int listsSize){
+    struct ListNode *p=*lists,*node,*head,*tmp;
+    int sum[10008];
+    int count=0;
+    for(int i=0;i<listsSize;i++)
+    {
+        while(lists[i])
+        {
+            tmp=lists[i];
+            sum[count]=lists[i]->val;
+            lists[i]=lists[i]->next;#存储结点的值，再移动到下一个节点
+            free(tmp);
+            count++;
+        }
+    }
+    #使用冒泡排序
+    for(int i=0;i<count-1;i++)
+    {
+        for(int j=0;j<count-1-i;j++)
+        {
+            if(sum[j]>sum[j+1])
+            {
+                int tmp=sum[j];
+                sum[j]=sum[j+1];
+                sum[j+1]=tmp;
+            }
+        }
+    }
+    head=(struct ListNode*)malloc(sizeof(struct ListNode));
+    p=head;
+    #再把排序之后的节点值存在新的节点中
+    for(int i=0;i<count;i++)
+    {
+        node=(struct ListNode*)malloc(sizeof(struct ListNode));
+        p->next=node;
+        node->val=sum[i];
+        p=node;
+    }
+    p->next=NULL;
+    p=head;
+    head=head->next;#最后移动头指针到头节点
+    free(p);
+    return head;
+}
