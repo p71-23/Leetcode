@@ -1,0 +1,25 @@
+#给定一个长度为 n 的整数数组 height 。有 n 条垂线，第 i 条线的两个端点是 (i, 0) 和 (i, height[i]) 。
+找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+返回容器可以储存的最大水量。
+int maxArea(int* height, int heightSize){
+    int sum=0,maxx=0;
+    int i=0,j=heightSize-1;#把双层循环问题转换为两个指针的问题，双层循环时间复杂度过高，无法通过
+    while(i<j)
+    {
+        if(height[i]<height[j])
+        {
+            sum=height[i]*(j-i);
+            if(sum>maxx)
+                maxx=sum;
+            i++;#这里i++是因为height[i]比较小影响了整体的面积大小，所以应该把前面的指针向后移动寻找更大值
+        }
+        else
+        {
+            sum=height[j]*(j-i);
+            if(sum>maxx)
+                maxx=sum;#因为每次移动位置后对maxx进行了更新所以也不会导致遗漏
+            j--;
+        }
+    }
+    return maxx;
+}
