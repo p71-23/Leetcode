@@ -1,0 +1,24 @@
+#给你一个下标从 0 开始的二维整数数组 nums 。一开始你的分数为 0 。你需要执行以下操作直到矩阵变为空：
+矩阵中每一行选取最大的一个数，并删除它。如果一行中有多个最大的数，选择任意一个并删除。
+在步骤 1 删除的所有数字中找到最大的一个数字，将它添加到你的 分数 中。
+请你返回最后的 分数 。
+
+#题目意思是把每一行的最大值找出来并删除，从提取的最大值里面找一个最大值作为分数奖励，实际的意思也就是把每一行做一个排序，然后再从每一列里面选择最大值相加。
+int matrixSum(int** nums, int numsSize, int* numsColSize){
+    int sum=0;
+    int cmp(const void *a, const void *b)
+    {
+        return *(int*)a-*(int*)b;//这里包含了一个强制类型转换
+    }
+    for(int i=0;i<numsSize;i++)
+        qsort(nums[i],numsColSize[0],sizeof(int),cmp);
+      #qsort函数包含四个参数，分别是数组，参与排序的个数，每个元素的大小，排序的规则。
+    for(int j=0;j<numsColSize[0];j++)
+    {
+        int maxx=0;
+        for(int i=0;i<numsSize;i++)
+            maxx=fmax(maxx,nums[i][j]);
+        sum+=maxx;
+    }
+    return sum;
+}
