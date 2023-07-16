@@ -1,0 +1,14 @@
+#给你一个整数数组 nums，请你将该数组升序排列。
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+ int cmp(const void *a, const void *b)
+{
+    return *(int*)a - *(int*)b; //由小到大排序
+}
+int* sortArray(int* nums, int numsSize, int* returnSize){
+
+    qsort(nums, numsSize, sizeof(int), cmp);
+    *returnSize = numsSize;
+    return nums;
+}
