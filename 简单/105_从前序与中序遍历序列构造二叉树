@@ -1,0 +1,27 @@
+#给定两个整数数组 preorder 和 inorder ，其中 preorder 是二叉树的先序遍历， inorder 是同一棵树的中序遍历，请构造二叉树并返回其根节点
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+struct TreeNode* buildTree(int* preorder, int preorderSize, int* inorder, int inorderSize){
+    if(preorderSize==0||inorderSize==0)
+        return NULL;
+    struct TreeNode* root=(struct TreeNode*)malloc(sizeof(struct TreeNode));
+    root->val=preorder[0];//根节点的值为先序遍历数组的第一个元素
+    int i=0;
+    for(i=0;i<inorderSize;i++)
+    {
+        if(inorder[i]==preorder[0])
+            break;
+    }
+    root->left=buildTree(preorder+1,i,inorder,i);
+    //递归构建左子树，先序遍历时左子树起始位置为preorder+1，大小是i；中序遍历时左子树的起始位置是inorder,大小为i
+    root->right=buildTree(preorder+i+1,preorderSize-i-1,inorder+i+1,preorderSize-i-1);
+    //同理构建右子树，先序遍历时右子树起始在preorder+i+1,大小为preordersize-i-1；中序遍历时右子树起始位置在inorder+i+1,大小为inorder-i-1
+    return root;
+
+}
