@@ -4,7 +4,7 @@ The problems are sourced from [leetcode](https://leetcode.com/problemset/all/) a
 
 The problems are categorized into three folders: Easy, Medium, and Hard. Each folder contains individual files named with the problem number and name format: "ProblemNumber_ProblemName".
 
-The file content begins with a "#" followed by the problem's description and examples. It is then followed by the code, comments, and the thought process for the solutions.
+The file content begins with a "#" followed by the problem's description and examples. It is then followed by the code, comments, and the thought process for the solutions.You can use the search bar in the upper right corner to find specific problem numbers or descriptions to query the corresponding solution process. 
 
 A new branch is created each week named "weekN_20xx/xx", indicating the week number and specific dates of the exercise.The changes are merged into the main branch and synchronized with the local repository on Sundays.
 
@@ -38,8 +38,13 @@ I would suggest considering the direct installation of WSL on Windows, as it ena
    #Output the results
    ```
 2.Installing an Integrated Development Environment (IDE) such as CodeBlocks or Dev-C++ on Ubuntu.
-   
-You can use the search bar in the upper right corner to find specific problem numbers or descriptions to query the corresponding solution process. If you discover any incorrect solutions or thought processes, please contact me at qianyi0830@163.com. Thank you.
+
+## evaluation
+You can find the corresponding evaluation script for each problem in the 'evaluation' folder. By using these evaluation scripts, you can effectively view the execution time and whether the test cases pass for each problem. This can help you address issues like the inability to display execution time on the LeetCode platform. 
+
+Each evaluation script is named as 'evaluation_problemnumber' to match the problem number. Since I have used C language for solving the problems, the evaluation scripts are also written in C. Each evaluation script includes both the test cases provided by LeetCode and my own defined boundary values. Please note that the evaluation scripts are currently in the process of being completed and improved. Due to the inability to access all the test cases from the LeetCode platform, the consideration of test case scenarios in the evaluation scripts is limited. As a result, it is possible that all test cases pass in the evaluation scripts but the problem may not be accepted on the LeetCode. In the future, I will enhance the evaluation scripts to include memory usage analysis and the generation of random test cases to address this limitation.
+
+If you discover any incorrect solutions or thought processes, please contact me at qianyi0830@163.com. Thank you.
 
 Happy hacking!
 
