@@ -1,0 +1,22 @@
+#给你一个链表的头节点 head ，判断链表中是否有环。
+如果链表中存在环 ，则返回 true 。 否则，返回 false 。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+bool hasCycle(struct ListNode *head) {
+    struct ListNode*flag;
+    flag=head;
+    int sum=10009;//题目中给出了链表的长度<10^4
+    while(sum--)
+    {
+        if(flag!=NULL)
+            flag=flag->next;
+        else
+            return false;
+    }//所以可以直接采用遍历整个链表，如果链表有环则不会出现flag==NULL的情况
+    return true;
+}
