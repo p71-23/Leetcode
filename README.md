@@ -6,4 +6,4 @@
 
   The goal is to solve either three Easy problems or one Easy problem and one Medium problem every week. 
 
-  Feel free to explore the repository for detailed [usage instruction](https://github.com/p71-23/Leetcode/blob/usage-instruction/usage%20instruction.md).
+  Feel free to explore the repository for detailed [usage instruction](https://github.com/p71-23/Leetcode/blob/main/usage%20instruction.md).
