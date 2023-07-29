@@ -1,0 +1,32 @@
+#给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* inorderTraversal(struct TreeNode* root, int* returnSize){
+    void inorder(struct TreeNode*root,int *res,int *returnSize)
+    {
+        if(root==NULL)
+            return;
+        else
+        {
+            inorder(root->left,res,returnSize);//左
+            res[(*returnSize)]=root->val;//根
+            (*returnSize)++;
+            inorder(root->right,res,returnSize);//右
+        }
+    }
+    int *res=(int*)malloc(sizeof(int)*100);
+    *returnSize=0;
+    inorder(root,res,returnSize);
+    return res;
+}
