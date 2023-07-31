@@ -1,0 +1,18 @@
+#给你一个字符串 jewels 代表石头中宝石的类型，另有一个字符串 stones 代表你拥有的石头。
+stones 中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。
+int numJewelsInStones(char * jewels, char * stones){
+        int length1=strlen(jewels);
+        int length2=strlen(stones);
+        int a[1007]={0};
+        for(int i=0;i<length1;i++)
+        {
+            a[jewels[i]]=1;//用数组a做标记，将jewels中出现过的字母的ASCII码对应的值变为1
+        }
+        int sum=0;
+        for(int i=0;i<length2;i++)
+        {
+            if(a[stones[i]]==1)
+                sum++;
+        }
+        return sum;
+}
