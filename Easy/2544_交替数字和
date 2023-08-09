@@ -1,0 +1,35 @@
+#给你一个正整数 n 。n 中的每一位数字都会按下述规则分配一个符号：最高有效位 上的数字分配到 正 号。剩余每位上数字的符号都与其相邻数字相反。
+返回所有数字及其对应符号的和。
+int alternateDigitSum(int n){
+    int a[109]={0};
+    int b[109]={0};
+    int i=0,m=0;
+    int sum=0;
+    while(n!=0)
+    {
+        a[i]=n%10;
+        n/=10;
+        i++;
+    }
+    m=i;//先计算出一共有几位数
+    for(int j=0;j<i,i>0;j++)
+    {
+        b[j]=a[i-1];
+        i--;
+    }//再按照数字顺序保存到数组b中
+    int flag=0;
+    for(int k=0;k<m;k++)
+    {
+        if(flag==0)
+        {
+            sum+=b[k];
+            flag=1;
+        }
+        else
+        {
+            sum+=-b[k];
+            flag=0;
+        }
+    }//利用flag控制每次相加的正负
+    return sum;
+}

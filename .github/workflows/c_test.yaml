@@ -1,0 +1,17 @@
+name: C Test
+
+on: 
+  workflow_dispatch:
+      
+jobs:
+  test_job:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: compile and run user_test.cpp
+        run: |
+          cd evaluation/evaluation_105
+          g++ user_test.cpp -o user_test
+          ./user_test

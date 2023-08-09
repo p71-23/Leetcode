@@ -2,8 +2,12 @@
 #include<stdlib.h>
 #include<time.h>
 #include "DATA_STRUCTURES.h"
-//这里替换成用户自己的代码
-struct TreeNode* buildTree(int* preorder, int preorderSize, int* inorder, int inorderSize){}
+
+struct TreeNode* buildTree(int* preorder, int preorderSize, int* inorder, int inorderSize){
+  //用户自己的代码实现
+
+  return NULL;
+}
 double getTimestamp(){
   return (double)clock()/CLOCKS_PER_SEC;}
 
@@ -27,4 +31,5 @@ int main(){
     printf("Test Passed!\n");
   return 0;
 }
+
 
