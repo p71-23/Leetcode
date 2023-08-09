@@ -9,9 +9,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Change Directory
-        run: Leetcode/eveluation/user_test.cpp
         
       - name: compile and run user_test.cpp
         run: |
