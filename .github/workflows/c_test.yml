@@ -13,6 +13,7 @@ jobs:
       - name: compile and run user_test.cpp
         run: |
           cd evaluation/evaluation_105
+          ls
           g++ user_test.cpp -o user_test
           
           ./user_test
