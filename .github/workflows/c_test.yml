@@ -15,6 +15,5 @@ jobs:
         
       - name: compile and run user_test.cpp
         run: |
-          g++ user_test.cpp -o user_test  #编译用户的代码文件
-          
-          ./user_test #运行用户的测试代码
+          g++ user_test.cpp -o user_test
+          ./user_test
