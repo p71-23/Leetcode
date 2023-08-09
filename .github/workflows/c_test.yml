@@ -8,7 +8,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout  #使用actions/checkout action检出用户代码
+        uses: actions/checkout
+      
+      - name: Change Directory
+        run: Leetcode/eveluation/user_test.cpp
         
       - name: compile and run user_test.cpp
         run: |
