@@ -16,4 +16,4 @@ jobs:
         run: |
           g++ .github/evaluation/evaluation_105/user_test.cpp -o user_test.exe
           
-          ./.github/evaluation/evaluation_105/user_test.exe
+          .\.github\evaluation\evaluation_105\user_test.exe
