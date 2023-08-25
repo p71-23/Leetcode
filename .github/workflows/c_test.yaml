@@ -1,8 +1,10 @@
 name: C Test
 
 on: 
-  workflow_dispatch:
-      
+  push:
+    branches:
+      - main  # 或其他默认分支名称
+
 jobs:
   test_job:
     runs-on: windows-latest
@@ -12,6 +14,6 @@ jobs:
         
       - name: compile and run user_test.cpp
         run: |
-          cd evaluation/evaluation_105
-          g++ user_test.cpp -o user_test
-          ./user_test
+          g++ .github/evaluation/evaluation_105/user_test.cpp -o user_test.exe
+          
+          .\.github\evaluation\evaluation_105\user_test.exe
