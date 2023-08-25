@@ -14,6 +14,6 @@ jobs:
         
       - name: compile and run user_test.cpp
         run: |
-          g++ .github/evaluation/evaluation_105/user_test.cpp -o user_test
+          g++ .github/evaluation/evaluation_105/user_test.cpp -o user_test.exe
           
-          ./.github/evaluation/evaluation_105/user_test
+          ./.github/evaluation/evaluation_105/user_test.exe
