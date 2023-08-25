@@ -1,9 +1,7 @@
 name: C Test
 
 on: 
-  push:
-    branches:
-      - main  # 或其他默认分支名称
+  workflow_dispatch:
 
 jobs:
   test_job:
