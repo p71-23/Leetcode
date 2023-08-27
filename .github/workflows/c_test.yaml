@@ -13,6 +13,5 @@ jobs:
       - name: compile and run user_test.cpp
         run: |
           g++ .github/evaluation/evaluation_105/user_test.cpp -o user_test.exe
-          echo %time%
           dir
-          user_test.exe
+          ./user_test.exe
