@@ -11,6 +11,7 @@ double getTimestamp(){
   return (double)clock()/CLOCKS_PER_SEC;}
 
 int main(){
+  printf("running……");
   //测试样例
   int preorder[]={3,9,20,15,7};
   int inorder[]={9,3,15,20,7};
