@@ -1,8 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
-#include "../DATA_STRUCTURES.h"
-
+//二叉树定义
+struct TreeNode{
+  int val;
+  struct TreeNode* left;
+  struct TreeNode* right;
+};
 struct TreeNode* buildTree(int* preorder, int preorderSize, int* inorder, int inorderSize){
   //用户自己的代码实现
 
