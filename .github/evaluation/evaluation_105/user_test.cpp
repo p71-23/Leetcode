@@ -24,7 +24,7 @@ int main(){
   double endTime=getTimestamp();
   double duration=endTime-startTime;
   printf("运行时间：%.6f秒\n",duration);
-  if(root == Null || root->val!=3)
+  if(root == NULL || root->val!=3)
     printf("Test Failed!\n");
   else
     printf("Test Passed!\n");
