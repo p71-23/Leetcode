@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#include "DATA_STRUCTURES.h"
 //二叉树定义
 struct TreeNode{
   int val;
