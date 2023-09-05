@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<time.h>
 #include "DATA_STRUCTURES.h"
-
 struct TreeNode* buildTree(int* preorder, int preorderSize, int* inorder, int inorderSize){
   //用户自己的代码实现
 
@@ -12,6 +11,7 @@ double getTimestamp(){
   return (double)clock()/CLOCKS_PER_SEC;}
 
 int main(){
+  printf("running……\n");
   //测试样例
   int preorder[]={3,9,20,15,7};
   int inorder[]={9,3,15,20,7};
@@ -24,8 +24,7 @@ int main(){
   double endTime=getTimestamp();
   double duration=endTime-startTime;
   printf("运行时间：%.6f秒\n",duration);
-
-  if(root->val!=3)
+  if(root == NULL || root->val!=3)
     printf("Test Failed!\n");
   else
     printf("Test Passed!\n");
