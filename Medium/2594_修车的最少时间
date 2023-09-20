@@ -1,0 +1,30 @@
+#给你一个整数数组 ranks ，表示一些机械工的 能力值 。ranksi 是第 i 位机械工的能力值。能力值为 r 的机械工可以在 r * n2 分钟内修好 n 辆车。
+同时给你一个整数 cars ，表示总共需要修理的汽车数目。请你返回修理所有汽车 最少 需要多少时间。
+注意：所有机械工可以同时修理汽车。
+long long repairCars(int* ranks, int ranksSize, int cars){
+    long long min=ranks[0];
+    for(int i=1;i<ranksSize;i++)
+    {
+        if(ranks[i]<min)
+            min=ranks[i];
+    }
+    long long time_least=min*cars*cars;
+    long long l=0,r=time_least;
+    time_least=(l+r)/2;
+    while(l<=r)
+    {
+        long long med=(l+r)/2;
+        long long sum=0;
+        for(int i=0;i<ranksSize;i++)
+            sum+=(long long)sqrt((double)med/ranks[i]);
+        if(sum>=cars)
+            r=med-1;
+        else
+            l=med+1;
+    }
+    return l;
+}
+#不能简单地用ranks值最小的机械工修所有车的时间作为最小的时间，
+如果采用优先队列的方式最后的时间复杂度也无法通过，所以应该用二分法搜索最短时间
+题目条件也有说所有机械工可以同时修理，最小时间l设置为0，最长时间是min*cars*cars，判断条件是在med时间内所有维修工能够修理的最大车辆数是否大于cars的值
+结束条件l>r，最后输出结果l
